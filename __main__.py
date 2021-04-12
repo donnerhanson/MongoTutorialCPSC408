@@ -1,7 +1,8 @@
 import pymongo
 
-myclient = pymongo.MongoClient(
-    "mongodb+srv://Donner:DonnerPass1@cluster0-yz8ix.mongodb.net/test?retryWrites=true&ssl_cert_reqs=CERT_NONE")
+myclient = pymongo.MongoClient(   "mongodb+srv://Donner:DonnerPass1@cluster0-yz8ix.mongodb.net/test?retryWrites=true&ssl_cert_reqs=CERT_NONE")
+
+#myclient = pymongo.MongoClient("mongodb+srv://Ori:OriPass1@cluster0-wet7k.gcp.mongodb.net/test?retryWrites=true&ssl_cert_reqs=CERT_NONE")
 
 print(myclient.list_database_names())
 
@@ -35,7 +36,7 @@ for i in cluster.find({'item': {'$eq': 'planner'}}):
 print('\n\n')
 
 # insert TP - So far we have not covered it Mongo does duplicate checking
-cluster.insert_one({'item': 'toilet paper', 'qty' : -100, 'status' : 'F', 'tags' : ['white']})
+cluster.insert_one({'item': 'toilet paper', 'qty' : -100, 'status' : 'F', 'tags' : ['non-existent']})
 
 for i in cluster.find():
     print(i)
